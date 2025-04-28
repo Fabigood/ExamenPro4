@@ -4,6 +4,7 @@ using ExaPro4.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExaPro4.Migrations
 {
     [DbContext(typeof(ExaPro4ContextSQLServer))]
-    partial class ExaPro4ContextSQLServerModelSnapshot : ModelSnapshot
+    [Migration("20250428134836_CorreccionNullable")]
+    partial class CorreccionNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

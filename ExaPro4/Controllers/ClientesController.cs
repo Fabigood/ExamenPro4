@@ -52,18 +52,21 @@ namespace ExaPro4.Controllers
         // POST: Clientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Clientes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Edad,Saldo,EsVip,FechaRegistro")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                _context.Add(cliente); // Solo agregar cliente, SIN PlanRecompensas.
+                await _context.SaveChangesAsync(); // Guardar en base de datos.
+
+                return RedirectToAction(nameof(Index)); // Volver al listado.
             }
             return View(cliente);
         }
+
 
         // GET: Clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
