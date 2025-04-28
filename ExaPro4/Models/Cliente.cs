@@ -24,7 +24,7 @@ namespace ExaPro4.Models
         [DataType(DataType.Date)]
         public DateTime FechaRegistro { get; set; }
 
-        public ICollection<Reserva> Reservas { get; set; }
+       
 
         public PlanRecompensas? PlanRecompensas { get; set; } // Plan de recompensas OPCIONAL
     }
