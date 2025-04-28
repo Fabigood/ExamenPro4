@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ExaPro4.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ExaPro4ContextSQLServer>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ExaPro4ContextSQLServer") ?? throw new InvalidOperationException("Connection string 'ExaPro4ContextSQLServer' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
